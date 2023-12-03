@@ -125,14 +125,14 @@ namespace Task2 {
             txtOut2->Text += "Наибольшая сумма " + Convert::ToString(maxsum) + " в "+Convert::ToString(maxi+1) + "-й строке:\r\n" + rowstring[maxi] + "\r\n";
             for (int i = 0; i < sums.Count; i++) {
                 if (i == mini) {
-                    txtSums->Text += Convert::ToString(sums[i]) + "\n";
+                    txtSums->Text += txtSums->Text->Format("{0,8}", Convert::ToString(sums[i])+ "\n") ;
                     
                 }
                 else if (i == maxi) {
-                    txtSums->Text += Convert::ToString(sums[i]) + "\n";
+                    txtSums->Text += txtSums->Text->Format("{0,8}", Convert::ToString(sums[i])+ "\n") ;
                     
                 }
-                else txtSums->Text += Convert::ToString(sums[i]) + "\n";
+                else txtSums->Text += txtSums->Text->Format("{0,8}", Convert::ToString(sums[i]) + "\n");
             }
             txtSums->Select(txtSums->Text->IndexOf(Convert::ToString(minsum)), Convert::ToString(minsum)->Length);
             txtSums->SelectionColor = Color::Red;

@@ -129,6 +129,7 @@
     <ClInclude Include="Task0.h" />
     <ClInclude Include="Task1.h" />
     <ClInclude Include="Task2.h" />
+    <ClInclude Include="Task4.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
