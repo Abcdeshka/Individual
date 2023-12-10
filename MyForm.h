@@ -11,91 +11,93 @@
 
 namespace Individual {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
+    using namespace System;
+    using namespace System::ComponentModel;
+    using namespace System::Collections;
+    using namespace System::Windows::Forms;
+    using namespace System::Data;
+    using namespace System::Drawing;
     using namespace System::IO;
 
-	/// <summary>
-	/// Сводка для MyForm
-	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
-	{
-	public:
-		MyForm(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
-		}
+    /// <summary>
+    /// Сводка для MyForm
+    /// </summary>
+    public ref class MyForm : public System::Windows::Forms::Form
+    {
+    public:
+        MyForm(void)
+        {
+            InitializeComponent();
+            //
+            //TODO: добавьте код конструктора
+            //
+        }
 
-	protected:
-		/// <summary>
-		/// Освободить все используемые ресурсы.
-		/// </summary>
-		~MyForm()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
-	private: System::Windows::Forms::TabControl^ tabControl1;
-	protected:
-	private: System::Windows::Forms::TabPage^ tabPage1;
-	private: System::Windows::Forms::TabPage^ tabPage2;
-	private: System::Windows::Forms::TabPage^ tabPage3;
-	private: System::Windows::Forms::TabPage^ tabPage4;
-	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::TextBox^ txtEndMas;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::TextBox^ txtOutFile;
-	private: System::Windows::Forms::Button^ btnSaveFile;
-	private: System::Windows::Forms::Button^ btnSol;
-	private: System::Windows::Forms::Label^ label5;
+    protected:
+        /// <summary>
+        /// Освободить все используемые ресурсы.
+        /// </summary>
+        ~MyForm()
+        {
+            if (components)
+            {
+                delete components;
+            }
+        }
+    private: System::Windows::Forms::TabControl^ tabControl1;
+    protected:
+    private: System::Windows::Forms::TabPage^ tabPage1;
+    private: System::Windows::Forms::TabPage^ tabPage2;
+    private: System::Windows::Forms::TabPage^ tabPage3;
+    private: System::Windows::Forms::TabPage^ tabPage4;
+    private: System::Windows::Forms::Label^ label8;
+    private: System::Windows::Forms::Label^ label7;
+    private: System::Windows::Forms::TextBox^ txtEndMas;
+    private: System::Windows::Forms::Button^ button2;
+    private: System::Windows::Forms::Label^ label6;
+    private: System::Windows::Forms::TextBox^ txtOutFile;
+    private: System::Windows::Forms::Button^ btnSaveFile;
+    private: System::Windows::Forms::Button^ btnSol;
+    private: System::Windows::Forms::Label^ label5;
 
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Button^ btnGen;
-	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::TextBox^ txtMax;
-	private: System::Windows::Forms::TextBox^ txtMin;
-	private: System::Windows::Forms::TextBox^ txtCount;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::Button^ btn_File;
+    private: System::Windows::Forms::Label^ label4;
+    private: System::Windows::Forms::Button^ btnGen;
+    private: System::Windows::Forms::GroupBox^ groupBox1;
+    private: System::Windows::Forms::TextBox^ txtMax;
+    private: System::Windows::Forms::TextBox^ txtMin;
+    private: System::Windows::Forms::TextBox^ txtCount;
+    private: System::Windows::Forms::Label^ label1;
+    private: System::Windows::Forms::Label^ label2;
+    private: System::Windows::Forms::Label^ label3;
+    private: System::Windows::Forms::TextBox^ txtBoxFile;
 
-	private: System::Windows::Forms::TextBox^ txtOut2;
 
-	private: System::Windows::Forms::Label^ label11;
+    private: System::Windows::Forms::Button^ btn_File;
+
+    private: System::Windows::Forms::TextBox^ txtOut2;
+
+    private: System::Windows::Forms::Label^ label11;
     private: System::Windows::Forms::TextBox^ textBoxFileOut2;
 
-	private: System::Windows::Forms::Button^ btnSave2;
-	private: System::Windows::Forms::Button^ btnSol2;
-	private: System::Windows::Forms::Label^ label12;
+    private: System::Windows::Forms::Button^ btnSave2;
+    private: System::Windows::Forms::Button^ btnSol2;
+    private: System::Windows::Forms::Label^ label12;
 
-	private: System::Windows::Forms::Label^ label13;
-	private: System::Windows::Forms::Button^ btnGen2;
-	private: System::Windows::Forms::GroupBox^ groupBox2;
-	private: System::Windows::Forms::TextBox^ txtX2;
-	private: System::Windows::Forms::Label^ label17;
-	private: System::Windows::Forms::TextBox^ txtMax2;
-	private: System::Windows::Forms::TextBox^ txtMin2;
-	private: System::Windows::Forms::TextBox^ txtY2;
-	private: System::Windows::Forms::Label^ label14;
-	private: System::Windows::Forms::Label^ label15;
-	private: System::Windows::Forms::Label^ label16;
+    private: System::Windows::Forms::Label^ label13;
+    private: System::Windows::Forms::Button^ btnGen2;
+    private: System::Windows::Forms::GroupBox^ groupBox2;
+    private: System::Windows::Forms::TextBox^ txtX2;
+    private: System::Windows::Forms::Label^ label17;
+    private: System::Windows::Forms::TextBox^ txtMax2;
+    private: System::Windows::Forms::TextBox^ txtMin2;
+    private: System::Windows::Forms::TextBox^ txtY2;
+    private: System::Windows::Forms::Label^ label14;
+    private: System::Windows::Forms::Label^ label15;
+    private: System::Windows::Forms::Label^ label16;
     private: System::Windows::Forms::TextBox^ TextBoxFile2;
 
-	private: System::Windows::Forms::Button^ btnFile2;
-	private: System::Windows::Forms::Label^ label9;
+    private: System::Windows::Forms::Button^ btnFile2;
+    private: System::Windows::Forms::Label^ label9;
     private: System::Windows::Forms::Label^ label10;
 
     private: System::Windows::Forms::Label^ label18;
@@ -109,25 +111,31 @@ namespace Individual {
     private: System::Windows::Forms::Label^ label23;
     private: System::Windows::Forms::Label^ label22;
     private: System::Windows::Forms::Label^ label20;
-    private: System::Windows::Forms::TextBox^ textBox2;
-    private: System::Windows::Forms::Button^ button1;
+    private: System::Windows::Forms::TextBox^ txtFileOut3;
+
+    private: System::Windows::Forms::Button^ btnSave3;
+
     private: System::Windows::Forms::Label^ label21;
-    private: System::Windows::Forms::TextBox^ textBox3;
-    private: System::Windows::Forms::Button^ button4;
+    private: System::Windows::Forms::TextBox^ txtFile3;
+
+    private: System::Windows::Forms::Button^ btnFile3;
+
     private: System::Windows::Forms::Label^ label24;
     private: System::Windows::Forms::Label^ label25;
     private: System::Windows::Forms::Label^ label26;
     private: System::Windows::Forms::Label^ label27;
-    private: System::Windows::Forms::TextBox^ textBox4;
+private: System::Windows::Forms::TextBox^ txtFileOut4;
+
     private: System::Windows::Forms::Button^ btnSave4;
 
     private: System::Windows::Forms::Label^ label28;
-    private: System::Windows::Forms::TextBox^ textBox5;
+private: System::Windows::Forms::TextBox^ txtFile4;
+
     private: System::Windows::Forms::Button^ btnFile4;
 
     private: System::Windows::Forms::Button^ btnSol4;
-private: System::Windows::Forms::RichTextBox^ txtOut4;
-private: System::Windows::Forms::RichTextBox^ txtIn4;
+    private: System::Windows::Forms::RichTextBox^ txtOut4;
+    private: System::Windows::Forms::RichTextBox^ txtIn4;
 
 
 
@@ -136,19 +144,19 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
 
 
 
-	private:
-		/// <summary>
-		/// Обязательная переменная конструктора.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+    private:
+        /// <summary>
+        /// Обязательная переменная конструктора.
+        /// </summary>
+        System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
-		void InitializeComponent(void)
-		{
+        /// <summary>
+        /// Требуемый метод для поддержки конструктора — не изменяйте 
+        /// содержимое этого метода с помощью редактора кода.
+        /// </summary>
+        void InitializeComponent(void)
+        {
             this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
             this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
             this->txtIn = (gcnew System::Windows::Forms::RichTextBox());
@@ -170,7 +178,7 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->label1 = (gcnew System::Windows::Forms::Label());
             this->label2 = (gcnew System::Windows::Forms::Label());
             this->label3 = (gcnew System::Windows::Forms::Label());
-            this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+            this->txtBoxFile = (gcnew System::Windows::Forms::TextBox());
             this->btn_File = (gcnew System::Windows::Forms::Button());
             this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
             this->txtSums = (gcnew System::Windows::Forms::RichTextBox());
@@ -201,11 +209,11 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->label23 = (gcnew System::Windows::Forms::Label());
             this->label22 = (gcnew System::Windows::Forms::Label());
             this->label20 = (gcnew System::Windows::Forms::Label());
-            this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-            this->button1 = (gcnew System::Windows::Forms::Button());
+            this->txtFileOut3 = (gcnew System::Windows::Forms::TextBox());
+            this->btnSave3 = (gcnew System::Windows::Forms::Button());
             this->label21 = (gcnew System::Windows::Forms::Label());
-            this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-            this->button4 = (gcnew System::Windows::Forms::Button());
+            this->txtFile3 = (gcnew System::Windows::Forms::TextBox());
+            this->btnFile3 = (gcnew System::Windows::Forms::Button());
             this->btnSol3 = (gcnew System::Windows::Forms::Button());
             this->txtOut3 = (gcnew System::Windows::Forms::RichTextBox());
             this->txtIn3 = (gcnew System::Windows::Forms::TextBox());
@@ -215,10 +223,10 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->label25 = (gcnew System::Windows::Forms::Label());
             this->label26 = (gcnew System::Windows::Forms::Label());
             this->label27 = (gcnew System::Windows::Forms::Label());
-            this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+            this->txtFileOut4 = (gcnew System::Windows::Forms::TextBox());
             this->btnSave4 = (gcnew System::Windows::Forms::Button());
             this->label28 = (gcnew System::Windows::Forms::Label());
-            this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+            this->txtFile4 = (gcnew System::Windows::Forms::TextBox());
             this->btnFile4 = (gcnew System::Windows::Forms::Button());
             this->btnSol4 = (gcnew System::Windows::Forms::Button());
             this->txtOut4 = (gcnew System::Windows::Forms::RichTextBox());
@@ -261,7 +269,7 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->tabPage1->Controls->Add(this->label4);
             this->tabPage1->Controls->Add(this->btnGen);
             this->tabPage1->Controls->Add(this->groupBox1);
-            this->tabPage1->Controls->Add(this->textBox1);
+            this->tabPage1->Controls->Add(this->txtBoxFile);
             this->tabPage1->Controls->Add(this->btn_File);
             this->tabPage1->Location = System::Drawing::Point(4, 25);
             this->tabPage1->Name = L"tabPage1";
@@ -489,14 +497,14 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->label3->TabIndex = 5;
             this->label3->Text = L"Максимальное значение диапазона:";
             // 
-            // textBox1
+            // txtBoxFile
             // 
-            this->textBox1->Enabled = false;
-            this->textBox1->Location = System::Drawing::Point(689, 157);
-            this->textBox1->Margin = System::Windows::Forms::Padding(4);
-            this->textBox1->Name = L"textBox1";
-            this->textBox1->Size = System::Drawing::Size(223, 22);
-            this->textBox1->TabIndex = 51;
+            this->txtBoxFile->Enabled = false;
+            this->txtBoxFile->Location = System::Drawing::Point(689, 157);
+            this->txtBoxFile->Margin = System::Windows::Forms::Padding(4);
+            this->txtBoxFile->Name = L"txtBoxFile";
+            this->txtBoxFile->Size = System::Drawing::Size(223, 22);
+            this->txtBoxFile->TabIndex = 51;
             // 
             // btn_File
             // 
@@ -838,11 +846,11 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->tabPage3->Controls->Add(this->label23);
             this->tabPage3->Controls->Add(this->label22);
             this->tabPage3->Controls->Add(this->label20);
-            this->tabPage3->Controls->Add(this->textBox2);
-            this->tabPage3->Controls->Add(this->button1);
+            this->tabPage3->Controls->Add(this->txtFileOut3);
+            this->tabPage3->Controls->Add(this->btnSave3);
             this->tabPage3->Controls->Add(this->label21);
-            this->tabPage3->Controls->Add(this->textBox3);
-            this->tabPage3->Controls->Add(this->button4);
+            this->tabPage3->Controls->Add(this->txtFile3);
+            this->tabPage3->Controls->Add(this->btnFile3);
             this->tabPage3->Controls->Add(this->btnSol3);
             this->tabPage3->Controls->Add(this->txtOut3);
             this->tabPage3->Controls->Add(this->txtIn3);
@@ -876,6 +884,7 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             // 
             // label20
             // 
+            this->label20->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->label20->AutoSize = true;
             this->label20->Location = System::Drawing::Point(729, 230);
             this->label20->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -884,29 +893,32 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->label20->TabIndex = 80;
             this->label20->Text = L"Имя выходного файла:";
             // 
-            // textBox2
+            // txtFileOut3
             // 
-            this->textBox2->Enabled = false;
-            this->textBox2->Location = System::Drawing::Point(731, 250);
-            this->textBox2->Margin = System::Windows::Forms::Padding(4);
-            this->textBox2->Name = L"textBox2";
-            this->textBox2->Size = System::Drawing::Size(219, 22);
-            this->textBox2->TabIndex = 79;
+            this->txtFileOut3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->txtFileOut3->Enabled = false;
+            this->txtFileOut3->Location = System::Drawing::Point(731, 250);
+            this->txtFileOut3->Margin = System::Windows::Forms::Padding(4);
+            this->txtFileOut3->Name = L"txtFileOut3";
+            this->txtFileOut3->Size = System::Drawing::Size(219, 22);
+            this->txtFileOut3->TabIndex = 79;
             // 
-            // button1
+            // btnSave3
             // 
-            this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
-            this->button1->Location = System::Drawing::Point(732, 280);
-            this->button1->Margin = System::Windows::Forms::Padding(4);
-            this->button1->Name = L"button1";
-            this->button1->Size = System::Drawing::Size(220, 28);
-            this->button1->TabIndex = 78;
-            this->button1->Text = L"Сохранить";
-            this->button1->UseVisualStyleBackColor = true;
-            this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+            this->btnSave3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->btnSave3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
+            this->btnSave3->Location = System::Drawing::Point(732, 280);
+            this->btnSave3->Margin = System::Windows::Forms::Padding(4);
+            this->btnSave3->Name = L"btnSave3";
+            this->btnSave3->Size = System::Drawing::Size(220, 28);
+            this->btnSave3->TabIndex = 78;
+            this->btnSave3->Text = L"Сохранить";
+            this->btnSave3->UseVisualStyleBackColor = true;
+            this->btnSave3->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
             // 
             // label21
             // 
+            this->label21->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->label21->AutoSize = true;
             this->label21->Location = System::Drawing::Point(729, 106);
             this->label21->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -915,29 +927,32 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->label21->TabIndex = 77;
             this->label21->Text = L"Имя входного файла:";
             // 
-            // textBox3
+            // txtFile3
             // 
-            this->textBox3->Enabled = false;
-            this->textBox3->Location = System::Drawing::Point(729, 126);
-            this->textBox3->Margin = System::Windows::Forms::Padding(4);
-            this->textBox3->Name = L"textBox3";
-            this->textBox3->Size = System::Drawing::Size(223, 22);
-            this->textBox3->TabIndex = 76;
+            this->txtFile3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->txtFile3->Enabled = false;
+            this->txtFile3->Location = System::Drawing::Point(729, 126);
+            this->txtFile3->Margin = System::Windows::Forms::Padding(4);
+            this->txtFile3->Name = L"txtFile3";
+            this->txtFile3->Size = System::Drawing::Size(223, 22);
+            this->txtFile3->TabIndex = 76;
             // 
-            // button4
+            // btnFile3
             // 
-            this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
-            this->button4->Location = System::Drawing::Point(729, 158);
-            this->button4->Margin = System::Windows::Forms::Padding(4);
-            this->button4->Name = L"button4";
-            this->button4->Size = System::Drawing::Size(224, 32);
-            this->button4->TabIndex = 75;
-            this->button4->Text = L"Открыть";
-            this->button4->UseVisualStyleBackColor = true;
-            this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+            this->btnFile3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->btnFile3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
+            this->btnFile3->Location = System::Drawing::Point(729, 158);
+            this->btnFile3->Margin = System::Windows::Forms::Padding(4);
+            this->btnFile3->Name = L"btnFile3";
+            this->btnFile3->Size = System::Drawing::Size(224, 32);
+            this->btnFile3->TabIndex = 75;
+            this->btnFile3->Text = L"Открыть";
+            this->btnFile3->UseVisualStyleBackColor = true;
+            this->btnFile3->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
             // 
             // btnSol3
             // 
+            this->btnSol3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->btnSol3->Location = System::Drawing::Point(733, 193);
             this->btnSol3->Name = L"btnSol3";
             this->btnSol3->Size = System::Drawing::Size(220, 34);
@@ -948,22 +963,25 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             // 
             // txtOut3
             // 
-            this->txtOut3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            this->txtOut3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->txtOut3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->txtOut3->Location = System::Drawing::Point(41, 181);
             this->txtOut3->Name = L"txtOut3";
-            this->txtOut3->Size = System::Drawing::Size(570, 313);
+            this->txtOut3->Size = System::Drawing::Size(681, 635);
             this->txtOut3->TabIndex = 2;
             this->txtOut3->Text = L"";
             this->txtOut3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::txtOut3_KeyPress);
             // 
             // txtIn3
             // 
-            this->txtIn3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            this->txtIn3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->txtIn3->Location = System::Drawing::Point(41, 126);
             this->txtIn3->Name = L"txtIn3";
-            this->txtIn3->Size = System::Drawing::Size(324, 24);
+            this->txtIn3->Size = System::Drawing::Size(324, 27);
             this->txtIn3->TabIndex = 1;
             this->txtIn3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::txtIn3_KeyPress);
             // 
@@ -985,10 +1003,10 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->tabPage4->Controls->Add(this->label25);
             this->tabPage4->Controls->Add(this->label26);
             this->tabPage4->Controls->Add(this->label27);
-            this->tabPage4->Controls->Add(this->textBox4);
+            this->tabPage4->Controls->Add(this->txtFileOut4);
             this->tabPage4->Controls->Add(this->btnSave4);
             this->tabPage4->Controls->Add(this->label28);
-            this->tabPage4->Controls->Add(this->textBox5);
+            this->tabPage4->Controls->Add(this->txtFile4);
             this->tabPage4->Controls->Add(this->btnFile4);
             this->tabPage4->Controls->Add(this->btnSol4);
             this->tabPage4->Controls->Add(this->txtOut4);
@@ -1003,19 +1021,22 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             // 
             // txtIn4
             // 
+            this->txtIn4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->txtIn4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
             this->txtIn4->Location = System::Drawing::Point(31, 97);
             this->txtIn4->Name = L"txtIn4";
-            this->txtIn4->Size = System::Drawing::Size(337, 367);
+            this->txtIn4->Size = System::Drawing::Size(681, 312);
             this->txtIn4->TabIndex = 94;
             this->txtIn4->Text = L"";
+            this->txtIn4->TextChanged += gcnew System::EventHandler(this, &MyForm::txtIn4_TextChanged);
             this->txtIn4->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::txtIn4_KeyPress);
             // 
             // label25
             // 
             this->label25->AutoSize = true;
-            this->label25->Location = System::Drawing::Point(372, 78);
+            this->label25->Location = System::Drawing::Point(37, 426);
             this->label25->Name = L"label25";
             this->label25->Size = System::Drawing::Size(72, 16);
             this->label25->TabIndex = 93;
@@ -1033,6 +1054,7 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             // 
             // label27
             // 
+            this->label27->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->label27->AutoSize = true;
             this->label27->Location = System::Drawing::Point(719, 199);
             this->label27->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -1041,17 +1063,19 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->label27->TabIndex = 91;
             this->label27->Text = L"Имя выходного файла:";
             // 
-            // textBox4
+            // txtFileOut4
             // 
-            this->textBox4->Enabled = false;
-            this->textBox4->Location = System::Drawing::Point(721, 219);
-            this->textBox4->Margin = System::Windows::Forms::Padding(4);
-            this->textBox4->Name = L"textBox4";
-            this->textBox4->Size = System::Drawing::Size(219, 22);
-            this->textBox4->TabIndex = 90;
+            this->txtFileOut4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->txtFileOut4->Enabled = false;
+            this->txtFileOut4->Location = System::Drawing::Point(721, 219);
+            this->txtFileOut4->Margin = System::Windows::Forms::Padding(4);
+            this->txtFileOut4->Name = L"txtFileOut4";
+            this->txtFileOut4->Size = System::Drawing::Size(219, 22);
+            this->txtFileOut4->TabIndex = 90;
             // 
             // btnSave4
             // 
+            this->btnSave4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->btnSave4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
             this->btnSave4->Location = System::Drawing::Point(722, 249);
             this->btnSave4->Margin = System::Windows::Forms::Padding(4);
@@ -1064,6 +1088,7 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             // 
             // label28
             // 
+            this->label28->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->label28->AutoSize = true;
             this->label28->Location = System::Drawing::Point(719, 75);
             this->label28->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -1072,17 +1097,19 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             this->label28->TabIndex = 88;
             this->label28->Text = L"Имя входного файла:";
             // 
-            // textBox5
+            // txtFile4
             // 
-            this->textBox5->Enabled = false;
-            this->textBox5->Location = System::Drawing::Point(719, 95);
-            this->textBox5->Margin = System::Windows::Forms::Padding(4);
-            this->textBox5->Name = L"textBox5";
-            this->textBox5->Size = System::Drawing::Size(223, 22);
-            this->textBox5->TabIndex = 87;
+            this->txtFile4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+            this->txtFile4->Enabled = false;
+            this->txtFile4->Location = System::Drawing::Point(719, 95);
+            this->txtFile4->Margin = System::Windows::Forms::Padding(4);
+            this->txtFile4->Name = L"txtFile4";
+            this->txtFile4->Size = System::Drawing::Size(223, 22);
+            this->txtFile4->TabIndex = 87;
             // 
             // btnFile4
             // 
+            this->btnFile4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->btnFile4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9));
             this->btnFile4->Location = System::Drawing::Point(719, 127);
             this->btnFile4->Margin = System::Windows::Forms::Padding(4);
@@ -1095,6 +1122,7 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             // 
             // btnSol4
             // 
+            this->btnSol4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
             this->btnSol4->Location = System::Drawing::Point(723, 162);
             this->btnSol4->Name = L"btnSol4";
             this->btnSol4->Size = System::Drawing::Size(220, 34);
@@ -1105,11 +1133,14 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
             // 
             // txtOut4
             // 
+            this->txtOut4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
             this->txtOut4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(204)));
-            this->txtOut4->Location = System::Drawing::Point(375, 97);
+            this->txtOut4->Location = System::Drawing::Point(31, 445);
             this->txtOut4->Name = L"txtOut4";
-            this->txtOut4->Size = System::Drawing::Size(337, 367);
+            this->txtOut4->Size = System::Drawing::Size(681, 371);
             this->txtOut4->TabIndex = 84;
             this->txtOut4->Text = L"";
             // 
@@ -1154,27 +1185,23 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
 
         }
 #pragma endregion
-        String^ FileName = "";
-        System::Boolean flag;
-		String^ FilePath1 = "";
-		String^ SaveFilePath1 = "";
+        String^ FilePath1 = "";
+        String^ SaveFilePath1 = "";
         String^ FilePath2 = "";
-		String^ SaveFilePath2 = "";
+        String^ SaveFilePath2 = "";
         String^ FilePath3 = "";
-		String^ SaveFilePath3 = "";
+        String^ SaveFilePath3 = "";
         String^ FilePath4 = "";
-		String^ SaveFilePath4 = "";
-		bool OutChanged = false;
-		bool InChanged = false;
-		int button;
-		String^ hist;
-		String^ hist4;
-		Task1::Task1 task1;
-		Task2::Task2 task2;
-		Task3::Task3 task3;
-		Task4::Task4 task4;
+        String^ SaveFilePath4 = "";
+        String^ hist1="abc";
+        String^ hist2;
+        String^ hist3;
+        String^ hist4;
+        Task1::Task1 task1;
+        Task2::Task2 task2;
+        Task3::Task3 task3;
+        Task4::Task4 task4;
         Ref0::MyClass f;
-        String^ res1 = "";
         bool flagfail1 = false;
         bool flagfile1 = false;
         bool flagfail2 = false;
@@ -1186,462 +1213,362 @@ private: System::Windows::Forms::RichTextBox^ txtIn4;
 
 
         //приведение матрицы в прямоугольный вид
-        private: void Rectangling(Windows::Forms::RichTextBox^ txt) {
-            String^ text = txt->Text;
-            if (text == "") return;
-            Collections::Generic::List<String^> arr;
-            // чистит по строкам
-            while (text != "") {
-                String^ curr = "";
-                int index = text->IndexOf('\n');
+    private: void Rectangling(Windows::Forms::RichTextBox^ txt) {
+        String^ text = txt->Text;
+        if (text == "") return;
+        Collections::Generic::List<String^> arr;
+        // чистит по строкам
+        while (text != "") {
+            String^ curr = "";
+            int index = text->IndexOf('\n');
 
-                if (index == 0) {
-                    text = text->Remove(0, text->IndexOf('\n') + 1);
+            if (index == 0) {
+                text = text->Remove(0, text->IndexOf('\n') + 1);
+            }
+            else {
+                if (index == -1) {
+                    curr = text;
+                    text = text + "\n";
                 }
                 else {
-                    if (index == -1) {
-                        curr = text;
-                        text = text + "\n";
-                    }
-                    else {
-                        curr = text->Remove(index, text->Length - index);
-                    }
-                    curr = f.formatString(curr);
-                    if (curr != "" && curr != nullptr) {
-                        if (curr[0] == ' ') curr = curr->Remove(0, 1);
-                        if (curr[curr->Length - 1] == ' ') curr = curr->Remove(curr->Length - 1, 1);
-                        arr.Add(curr);
-                    }
+                    curr = text->Remove(index, text->Length - index);
+                }
+                curr = f.formatString(curr);
+                if (curr != "" && curr != nullptr) {
+                    if (curr[0] == ' ') curr = curr->Remove(0, 1);
+                    if (curr[curr->Length - 1] == ' ') curr = curr->Remove(curr->Length - 1, 1);
+                    arr.Add(curr);
+                }
 
-                    text = text->Remove(0, text->IndexOf('\n') + 1);
-                }
+                text = text->Remove(0, text->IndexOf('\n') + 1);
             }
-            txtIn2->Text = "";
-            //размеры массива и собирание его в прямоугольный
-            int col = arr.Count;
-            int len = 0;
-            Collections::Generic::List<int> sums;
-            for (int i = 0; i < arr.Count; i++) {
-                if (arr[i]->Split(' ')->Length > len) len = arr[i]->Split(' ')->Length;
-            }
-            for each (String ^ str in arr) {
-                Collections::Generic::List<String^> row;
-                for each (String ^ s in str->Split(' ')) {
-                    txt->Text += txt->Text->Format("{0,8}", s);
-                    row.Add(s);
-                }
-                while (len > row.Count)
-                {
-                    txt->Text += txt->Text->Format("{0,8}", 0);
-                    row.Add("0");
-                }
-                txt->Text += "\r\n";
-            }
-
         }
-        //открытие файла 1 задания
-        void fFileOP(String^ text, Windows::Forms::TextBox^ txt) {
-            OpenFileDialog^ opFileD = gcnew OpenFileDialog;
-            opFileD->Title = "Открытие файла со списком маршрутов";
-            opFileD->InitialDirectory = "d:\\";
-            opFileD->Filter = "Текстовые файлы (*.txt)|*.txt";
-            opFileD->ShowReadOnly = false;
-            opFileD->RestoreDirectory = true;
-
-            if (opFileD->ShowDialog() == Windows::Forms::DialogResult::OK)
+        txtIn2->Text = "";
+        //размеры массива и собирание его в прямоугольный
+        int col = arr.Count;
+        int len = 0;
+        Collections::Generic::List<int> sums;
+        for (int i = 0; i < arr.Count; i++) {
+            if (arr[i]->Split(' ')->Length > len) len = arr[i]->Split(' ')->Length;
+        }
+        for each (String ^ str in arr) {
+            Collections::Generic::List<String^> row;
+            for each (String ^ s in str->Split(' ')) {
+                txt->Text += txt->Text->Format("{0,8}", s);
+                row.Add(s);
+            }
+            while (len > row.Count)
             {
-                text = opFileD->FileName;
-                txt->Text = text;
-                try {
-                    String^ str = IO::File::ReadAllText(opFileD->FileName);
-                    txtIn->Text = f.formatString(str);
-                    txtEndMas->Text = "";
-                }
-                catch (IO::FileNotFoundException^ error) {
-                    MessageBox::Show("Ошибка", error->Message + "\nНет такого файла, Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-                }
+                txt->Text += txt->Text->Format("{0,8}", 0);
+                row.Add("0");
             }
-            else
-                text = "";
+            txt->Text += "\r\n";
         }
 
-        //открытие файла для 2 задания
-        private: void fFileOPD(String^ text, Windows::Forms::TextBox^ txt, Windows::Forms::RichTextBox^ txtar, bool i) {
-            OpenFileDialog^ opFileD = gcnew OpenFileDialog;
-            opFileD->Title = "Открытие файла со списком маршрутов";
-            opFileD->InitialDirectory = "d:\\";
-            opFileD->Filter = "Текстовые файлы (*.txt)|*.txt";
-            opFileD->ShowReadOnly = false;
-            opFileD->RestoreDirectory = true;
-            opFileD->ShowDialog();
-            text = opFileD->FileName;
-            txt->Text = text;
-            if (text != "") {
-                try {
-                    String^ str = IO::File::ReadAllText(text);
-                    txtar->Text = str;
-                    Rectangling(txtar);
-                }
-                catch (IO::FileNotFoundException^ error) {
-                    MessageBox::Show("Ошибка", error->Message + "\nНет такого файла, Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-                }
-            }
-        }
-        //сохранение файла
-        void fFileIN(String^ SaveFilePath, Windows::Forms::TextBox^ textBox, Windows::Forms::TextBox^ txtOut,
-            Windows::Forms::RichTextBox^ txtIn, bool flagfile, bool flagfail,String^ message ) {
-            SaveFileDialog^ sfd = gcnew SaveFileDialog();
-            sfd->Title = "Сохранить файл";
-            sfd->Filter = "Текстовые файлы (*.txt)|*.txt";
-            if (SaveFilePath != "") {
-                array<String^>^ arrpath = SaveFilePath->Replace('\\', ' ')->Split();
-                sfd->FileName = arrpath[arrpath->Length - 1];
-            }
-            sfd->RestoreDirectory = true;
-            sfd->OverwritePrompt = false;
-            sfd->ShowDialog();
-            if (sfd->FileName != "") {
-                StreamWriter^ sw = gcnew StreamWriter(sfd->FileName, true);
-                SaveFilePath = sfd->FileName;
-                textBox->Text = SaveFilePath;
-                if (flagfail && (hist != txtOut->Text)) {
-                    if (flagfile) {
-                        sw->WriteLine(message);
-                        sw->WriteLine(txtIn->Text);
-                        flagfile = false;
-                    }
-                    sw->WriteLine(txtOut->Text);
-                    hist = txtOut->Text;
-                    flagfail = false;
-                }
-                sw->Close();
-            }
-        }
+    }
 
-        String^ format3(String^ str) {
-            String^ str2="";
-            int flag = 0;
-            for (int i = 0; i < str->Length - 1; i++) {
+           //For opening files
+           String^ Opening(String^ filePath, Windows::Forms::TextBox^ txtFilePath) {
+               String^ str = "";
+               OpenFileDialog^ opFileD = gcnew OpenFileDialog;
+               opFileD->Title = "Открытие файла со списком маршрутов";
+               opFileD->InitialDirectory = "d:\\";
+               opFileD->Filter = "Текстовые файлы (*.txt)|*.txt";
+               opFileD->ShowReadOnly = false;
+               opFileD->RestoreDirectory = true;
+               if (opFileD->ShowDialog() == Windows::Forms::DialogResult::OK)
+               {
+                   filePath = opFileD->FileName;
+                   txtFilePath->Text = filePath;
+                   try {
+                       str = IO::File::ReadAllText(opFileD->FileName);
 
-                if (!Char::IsNumber(str[i]) && str2->Length != 0) {
-                    return str2;
-                }
-                if (!Char::IsNumber(str[i]) && Char::IsNumber(str[i + 1]) && str2->Length == 0) {
-                    str2 = str2;
-                }
-                else if (Char::IsNumber(str[i])) {
-                    str2 += str[i];
-                }
-            }
-            if (str->Length != 0) {
-                if (Char::IsNumber(str[str->Length - 1])) { str2 += str[str->Length - 1]; }
-            }
-            return str2;
-        }
-        //открытие файла 3 задания
-        void fFileOP3(String^ text, Windows::Forms::TextBox^ txt) {
-            OpenFileDialog^ opFileD = gcnew OpenFileDialog;
-            opFileD->Title = "Открытие файла со списком маршрутов";
-            opFileD->InitialDirectory = "d:\\";
-            opFileD->Filter = "Текстовые файлы (*.txt)|*.txt";
-            opFileD->ShowReadOnly = false;
-            opFileD->RestoreDirectory = true;
+                   }
+                   catch (IO::FileNotFoundException^ error) {
+                       MessageBox::Show("Ошибка", error->Message + "\nНет такого файла, Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+                   }
+               }
+               else
+                   filePath = "";
+               if (str != "") return str;
+           }
+           //for saving files
+           void Saving(String^& filePath, String^ txtInText, String^ txtOutText, Windows::Forms::TextBox^ txtFilePath,
+               bool& flagfile, bool& flagfail, String^ message, String^& hist) {
+               SaveFileDialog^ sfd = gcnew SaveFileDialog();
+               sfd->Title = "Сохранить файл";
+               sfd->Filter = "Текстовые файлы (*.txt)|*.txt";
+               sfd->RestoreDirectory = true;
+               sfd->OverwritePrompt = false;
+               sfd->ShowDialog();
+               if (sfd->FileName != "") {
+                   StreamWriter^ sw = gcnew StreamWriter(sfd->FileName, true);
+                   filePath = sfd->FileName;
+                   txtFilePath->Text = filePath;
+                   if (flagfail && (hist != txtOutText)) {
+                       if (flagfile) {
+                           sw->WriteLine(message);
+                           sw->WriteLine(txtInText);
+                           flagfile = false;
+                       }
+                       sw->WriteLine(txtOutText);
+                       hist = txtOutText;
+                       flagfail = false;
+                   }
+                   sw->Close();
+               }
+           }
 
-            if (opFileD->ShowDialog() == Windows::Forms::DialogResult::OK)
-            {
-                text = opFileD->FileName;
-                txt->Text = text;
-                try {
-                    String^ str = IO::File::ReadAllText(opFileD->FileName);
-                    txtIn3->Text = format3(str);
-                    txtOut3->Text = "";
-                }
-                catch (IO::FileNotFoundException^ error) {
-                    MessageBox::Show("Ошибка", error->Message + "\nНет такого файла, Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-                }
-            }
-            else
-                text = "";
-        }
-        //открытие файла 4 задания
-        void fFileOP4(String^ text, Windows::Forms::TextBox^ txt) {
-            OpenFileDialog^ opFileD = gcnew OpenFileDialog;
-            opFileD->Title = "Открытие файла со списком маршрутов";
-            opFileD->InitialDirectory = "d:\\";
-            opFileD->Filter = "Текстовые файлы (*.txt)|*.txt";
-            opFileD->ShowReadOnly = false;
-            opFileD->RestoreDirectory = true;
+           String^ format3(String^ str) {
+               String^ str2 = "";
+               int flag = 0;
+               for (int i = 0; i < str->Length - 1; i++) {
 
-            if (opFileD->ShowDialog() == Windows::Forms::DialogResult::OK)
-            {
-                text = opFileD->FileName;
-                txt->Text = text;
-                try {
-                    String^ str = IO::File::ReadAllText(opFileD->FileName);
-                    txtIn4->Text = format4(str);
-                    txtOut4->Text = "";
-                }
-                catch (IO::FileNotFoundException^ error) {
-                    MessageBox::Show("Ошибка", error->Message + "\nНет такого файла, Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-                }
-            }
-            else
-                text = "";
-        }
+                   if (!Char::IsNumber(str[i]) && str2->Length != 0) {
+                       return str2;
+                   }
+                   if (!Char::IsNumber(str[i]) && Char::IsNumber(str[i + 1]) && str2->Length == 0) {
+                       str2 = str2;
+                   }
+                   else if (Char::IsNumber(str[i])) {
+                       str2 += str[i];
+                   }
+               }
+               if (str->Length != 0) {
+                   if (Char::IsNumber(str[str->Length - 1])) { str2 += str[str->Length - 1]; }
+               }
+               return str2;
+           }
+           
+    private: System::Void btnGen_Click(System::Object^ sender, System::EventArgs^ e) {
+        flagfile1 = true;
+        task1.Gen1(flagfail1, flagfile1, txtCount, txtIn, txtEndMas, txtMin, txtMax);
+    }
 
-
-        void fFileIN3(String^ SaveFilePath, Windows::Forms::TextBox^ textBox, Windows::Forms::RichTextBox^ txtOut,
-            Windows::Forms::TextBox^ txtIn, bool flagfile, bool flagfail, String^ message) {
-            SaveFileDialog^ sfd = gcnew SaveFileDialog();
-            sfd->Title = "Сохранить файл";
-            sfd->Filter = "Текстовые файлы (*.txt)|*.txt";
-            if (SaveFilePath != "") {
-                array<String^>^ arrpath = SaveFilePath->Replace('\\', ' ')->Split();
-                sfd->FileName = arrpath[arrpath->Length - 1];
-            }
-            sfd->RestoreDirectory = true;
-            sfd->OverwritePrompt = false;
-            sfd->ShowDialog();
-            if (sfd->FileName != "") {
-                StreamWriter^ sw = gcnew StreamWriter(sfd->FileName, true);
-                SaveFilePath = sfd->FileName;
-                textBox->Text = SaveFilePath;
-                if (flagfail && (hist != txtOut->Text)) {
-                    if (flagfile) {
-                        sw->WriteLine(message);
-                        sw->WriteLine(txtIn->Text);
-                        flagfile = false;
-                    }
-                    sw->WriteLine(txtOut->Text);
-                    hist = txtOut->Text;
-                    flagfail = false;
-                }
-                sw->Close();
-            }
-        }
-        void fFileIN4(String^ SaveFilePath, Windows::Forms::TextBox^ textBox, Windows::Forms::RichTextBox^ txtOut,
-            Windows::Forms::RichTextBox^ txtIn, bool flagfile, bool flagfail, String^ message) {
-            SaveFileDialog^ sfd = gcnew SaveFileDialog();
-            sfd->Title = "Сохранить файл";
-            sfd->Filter = "Текстовые файлы (*.txt)|*.txt";
-            if (SaveFilePath != "") {
-                array<String^>^ arrpath = SaveFilePath->Replace('\\', ' ')->Split();
-                sfd->FileName = arrpath[arrpath->Length - 1];
-            }
-            sfd->RestoreDirectory = true;
-            sfd->OverwritePrompt = false;
-            sfd->ShowDialog();
-            if (sfd->FileName != "") {
-                StreamWriter^ sw = gcnew StreamWriter(sfd->FileName, true);
-                SaveFilePath = sfd->FileName;
-                textBox->Text = SaveFilePath;
-                if (flagfail && (hist4 != txtOut->Text)) {
-                    if (flagfile) {
-                        sw->WriteLine(txtIn->Text);
-                        flagfile = false;
-                    }
-                    sw->WriteLine(txtOut->Text);
-                    hist4 = txtOut->Text;
-                    flagfail = false;
-                }
-                sw->Close();
-            }
-        }
-
-    //для минимальной и максимальный границ массива
-    void keypressMinMax(System::Windows::Forms::KeyPressEventArgs^ e, System::Windows::Forms::TextBox^ txt) {
+    private: System::Void btn_File_Click(System::Object^ sender, System::EventArgs^ e) {
+        flagfile1 = true;
+        txtIn->Text=f.formatString(Opening(FilePath1, txtBoxFile));
         txtEndMas->Text = "";
-        char key = e->KeyChar;
-        if (!Char::IsDigit(e->KeyChar) && key != 8 && key != '-') {
-            e->Handled = true;
-
-        }
-        else {
-            try {
-                if (key == '-') {
-                    double a = System::Double::Parse(txt->Text);
-                    a *= -1;
-                    txt->Text = Convert::ToString(a);
-                    e->Handled = true;
-                    txt->SelectionStart = txt->Text->Length;
-                }
-            }
-            catch (System::FormatException^ r) {
-                if (txt->Text->Length == 1) {
-                    e->Handled = true;
-                }
-            }
-
-        }
     }
-	private: System::Void btnGen_Click(System::Object^ sender, System::EventArgs^ e) {
-		task1.Gen1(OutChanged,InChanged,txtCount,txtIn,txtEndMas,txtMin,txtMax);
-	}
 
-	private: System::Void btn_File_Click(System::Object^ sender, System::EventArgs^ e) {
-        fFileOP(FilePath1, textBox1);
-	}
-
-	private: System::Void btnSol_Click(System::Object^ sender, System::EventArgs^ e) {
-		task1.Sol1(OutChanged, InChanged, txtIn, txtEndMas);
-	}
-	private: System::Void btnGen2_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: System::Void btnSol_Click(System::Object^ sender, System::EventArgs^ e) {
+        flagfail1 = true;
+        task1.Sol1(flagfail1, flagfile1, txtIn, txtEndMas);
+    }
+    private: System::Void btnGen2_Click(System::Object^ sender, System::EventArgs^ e) {
         flagfile2 = true;
-		task2.Gen2(txtSums, txtX2, txtY2, txtIn2, txtMin2, txtMax2,txtOut2);
-	}
-private: System::Void btnSol2_Click(System::Object^ sender, System::EventArgs^ e) {
-    flagfail2 = true;
-    task2.Sol2(txtSums, txtOut2, txtIn2);
-}
-private: System::Void btnFile2_Click(System::Object^ sender, System::EventArgs^ e) {
-    flagfile2 = true;
-    fFileOPD(FileName, TextBoxFile2, txtIn2, 1);
-}
-private: System::Void btnSave2_Click(System::Object^ sender, System::EventArgs^ e) {
-    /*Save2(SaveFilePath, txtIn2, textBoxFileOut2, 0, txtOut2);*/
-    fFileIN(SaveFilePath2,textBoxFileOut2,txtOut2,txtIn2, flagfile2,flagfail2,"Исходный массив:");
-}
-private: System::Void txtX2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void txtX2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    char key = e->KeyChar;
-    if (!Char::IsDigit(e->KeyChar) && key != 8) {
-        e->Handled = true;
+        task2.Gen2(txtSums, txtX2, txtY2, txtIn2, txtMin2, txtMax2, txtOut2);
     }
-}
-private: System::Void txtY2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    char key = e->KeyChar;
-    if (!Char::IsDigit(e->KeyChar) && key != 8) {
-        e->Handled = true;
+    private: System::Void btnSol2_Click(System::Object^ sender, System::EventArgs^ e) {
+        flagfail2 = true;
+        task2.Sol2(txtSums, txtOut2, txtIn2);
     }
-}
-private: System::Void txtMin2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    keypressMinMax(e, txtMin2);
-}
-private: System::Void txtMax2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    keypressMinMax(e, txtMax2);
-}
-private: System::Void btnClose2_Click(System::Object^ sender, System::EventArgs^ e) {
-    this->Close();
-}
-private: System::Void txtIn2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    txtY2->Text = "";
-    txtX2->Text = "";
-    txtMin2->Text = "";
-    txtMax2->Text = "";
-
-}
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void txtIn2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void txtSums_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-       //меняет размеры окна при изменении вкладки с заданием
-private: System::Void tabControl1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-    std::cout << tabControl1->SelectedIndex;
-    int i = 0;
-    switch (tabControl1->SelectedIndex) {
-    case 0:
-        this->MaximizeBox = false;
-        this->MinimizeBox = false;
-        this->Width = 500;
-        this->Height = 690;
-        break;
-    case 1:
-        this->MaximizeBox = true;
-        this->MinimizeBox = true;
-        this->Width = 1900;
-        this->Height = 820;
-        break;
-    case 2:
-        this->MaximizeBox = false;
-        this->MinimizeBox = false;
-        this->Width = 500;
-        this->Height = 100;
-        break;
-    case 3:
-        this->MaximizeBox = true;
-        this->MinimizeBox = true;
-        this->Width = 100;
-        this->Height = 100;
-        break;
+    private: System::Void btnFile2_Click(System::Object^ sender, System::EventArgs^ e) {
+        flagfile2 = true;
+        /*fFileOPD(FileName, TextBoxFile2, txtIn2, 1);*/
+        txtIn2->Text = Opening(FilePath2, TextBoxFile2);
+        txtOut2->Text = "";
+        Rectangling(txtIn2);
     }
-
-}
-private: System::Void btnSol3_Click(System::Object^ sender, System::EventArgs^ e) {
-    flagfail3 = true;
-    task3.Sol3(txtOut3, txtIn3);
-}
-private: System::Void txtMin_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    keypressMinMax(e, txtMin);
-}
-private: System::Void txtMax_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    keypressMinMax(e, txtMax);
-}
-private: System::Void txtCount_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    char key = e->KeyChar;
-    if (!Char::IsDigit(e->KeyChar) && key != 8) {
-        e->Handled = true;
+    private: System::Void btnSave2_Click(System::Object^ sender, System::EventArgs^ e) {
+        //fFileIN(SaveFilePath2, textBoxFileOut2, txtOut2, txtIn2, flagfile2, flagfail2, "Исходный массив:");
+        bool flag = flagfile2;
+        bool flag2 = flagfail2;
+        String^ s = SaveFilePath2;
+        String^ hs = hist2;
+        Saving(s, txtIn2->Text, txtOut2->Text, textBoxFileOut2, flag, flag2, L"Исходный массив:", hs);
+        flagfail2 = flag2;
+        flagfile2 = flag;
+        SaveFilePath2 = s;
+        hist2 = hs;
+        //Saving(SaveFilePath2, txtIn2->Text, txtOut2->Text, textBoxFileOut2, flagfile2, flagfail2, "Исходный массив:", hist2);
     }
-}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-    this->Close();
-}
-private: System::Void btnSaveFile_Click(System::Object^ sender, System::EventArgs^ e) {
-    fFileIN(SaveFilePath1, txtOutFile, txtEndMas, txtIn, flagfile1, flagfail1, "Исходный массив:");
-}
-private: System::Void label23_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void txtIn3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    flagfile3 = true;
-    char key = e->KeyChar;
-    if (!Char::IsDigit(e->KeyChar) && key != 8) {
-        e->Handled = true;
+    private: System::Void txtX2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
     }
-}
-private: System::Void txtOut3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    flagfail3 = true;
-    txtIn3->Text = "";
-}
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-    flagfile3 = true;
-    fFileOP3(FilePath3, textBox3);
-}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-    fFileIN3(SaveFilePath3, textBox2, txtOut3, txtIn3, flagfile3, flagfail3, L"Простые множители данного числа:");
-}
-private: System::Void label26_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void btnSol4_Click(System::Object^ sender, System::EventArgs^ e) {
-    flagfail4 = true;
-    task4.Sol4(txtOut4, txtIn4);
-}
-private: System::Void txtIn4_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-    flagfile4 = true;
-    char key = e->KeyChar;
-    if (!Char::IsDigit(e->KeyChar) && key != 8 && (key<40 || key>57) && (key<65 || key>90) && (key<97 || key>122)) {
-        e->Handled = true;
-    }
-}
-private: System::Void btnFile4_Click(System::Object^ sender, System::EventArgs^ e) {
-    flagfile4 = true;
-    fFileOP4(FilePath4, textBox5);
-}
-private: String^ format4(String^ str) {
-    String^ str2;
-    int flag = 0;
-    for (int i = 0; i < str->Length; i++) {
-        char key = str[i];
-        if (( (key >= 40 && key<=57) || (key >= 65 && key<=90) || (key >= 97 && key<=122))) {
-            str2 += str[i];
+    private: System::Void txtX2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        char key = e->KeyChar;
+        if (!Char::IsDigit(e->KeyChar) && key != 8) {
+            e->Handled = true;
         }
     }
-    
-    return str2;
-}
-private: System::Void btnSave4_Click(System::Object^ sender, System::EventArgs^ e) {
-    fFileIN4(SaveFilePath4, textBox4, txtOut4, txtIn4, flagfile4, flagfail4, "");
-}
+    private: System::Void txtY2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        char key = e->KeyChar;
+        if (!Char::IsDigit(e->KeyChar) && key != 8) {
+            e->Handled = true;
+        }
+    }
+    private: System::Void txtMin2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        txtOut2->Text = "";
+        f.keypressMinMax(e, txtMin2);
+    }
+    private: System::Void txtMax2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        txtOut2->Text = "";
+        f.keypressMinMax(e, txtMax2);
+    }
+    private: System::Void btnClose2_Click(System::Object^ sender, System::EventArgs^ e) {
+        this->Close();
+    }
+    private: System::Void txtIn2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        txtY2->Text = "";
+        txtX2->Text = "";
+        txtMin2->Text = "";
+        txtMax2->Text = "";
+
+    }
+    private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+    }
+    private: System::Void txtIn2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+    }
+    private: System::Void txtSums_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+    }
+           //меняет размеры окна при изменении вкладки с заданием
+    private: System::Void tabControl1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+        std::cout << tabControl1->SelectedIndex;
+        int i = 0;
+        switch (tabControl1->SelectedIndex) {
+        case 0:
+            this->MaximizeBox = false;
+            this->MinimizeBox = false;
+            this->Width = 500;
+            this->Height = 690;
+            break;
+        case 1:
+            this->MaximizeBox = true;
+            this->MinimizeBox = true;
+            this->Width = 1900;
+            this->Height = 820;
+            break;
+        case 2:
+            this->MaximizeBox = false;
+            this->MinimizeBox = false;
+            this->Width = 500;
+            this->Height = 100;
+            break;
+        case 3:
+            this->MaximizeBox = true;
+            this->MinimizeBox = true;
+            this->Width = 100;
+            this->Height = 820;
+            break;
+        }
+
+    }
+    private: System::Void btnSol3_Click(System::Object^ sender, System::EventArgs^ e) {
+        flagfail3 = true;
+        task3.Sol3(txtOut3, txtIn3);
+    }
+    private: System::Void txtMin_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        txtEndMas->Text = "";
+        f.keypressMinMax(e, txtMin);
+    }
+    private: System::Void txtMax_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        txtEndMas->Text = "";
+        f.keypressMinMax(e, txtMax);
+    }
+    private: System::Void txtCount_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        char key = e->KeyChar;
+        if (!Char::IsDigit(e->KeyChar) && key != 8) {
+            e->Handled = true;
+        }
+    }
+    private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+        this->Close();
+    }
+    private: System::Void btnSaveFile_Click(System::Object^ sender, System::EventArgs^ e) {
+        //fFileIN(SaveFilePath1, txtOutFile, EndMas, txtIn, flagfile1, flagfail1, "Исходный массив:");
+        bool flag = flagfile1;
+        bool flag2 = flagfail1;
+        String^ s = SaveFilePath1;
+        String^ hs = hist1;
+        Saving(s, txtIn->Text, txtEndMas->Text, txtOutFile, flag, flag2, Convert::ToString(L"Исходный массив:"), hs);
+        flagfail1 = flag2;
+        flagfile1 = flag;
+        SaveFilePath1 = s;
+        hist1 = hs;      
+    }
+    private: System::Void label23_Click(System::Object^ sender, System::EventArgs^ e) {
+    }
+    private: System::Void txtIn3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        flagfile3 = true;
+        char key = e->KeyChar;
+        if (!Char::IsDigit(e->KeyChar) && key != 8) {
+            e->Handled = true;
+        }
+    }
+    private: System::Void txtOut3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        flagfail3 = true;
+        txtIn3->Text = "";
+    }
+    private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+        flagfile3 = true;
+        //fFileOP3(FilePath3, textBox3);
+        txtIn3->Text = format3(Opening(FilePath3, txtFile3));
+        txtOut3->Text = "";
+    }
+    private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+        //fFileIN3(SaveFilePath3, txtFileOut3, txtOut3, txtIn3, flagfile3, flagfail3, L"Простые множители данного числа:");
+        bool flag = flagfile3;
+        bool flag2 = flagfail3;
+        String^ s = SaveFilePath3;
+        String^ hs = hist3;
+        Saving(s, txtIn3->Text, txtOut3->Text, txtFileOut3, flag, flag2, L"Простые множители данного числа:", hs);
+        flagfail3 = flag2;
+        flagfile3 = flag;
+        SaveFilePath3 = s;
+        hist3 = hs;
+        //Saving(SaveFilePath3, txtIn3->Text, txtOut3->Text, txtFileOut3, flagfile3, flagfail3, L"Простые множители данного числа:", hist3);
+    }
+    private: System::Void label26_Click(System::Object^ sender, System::EventArgs^ e) {
+    }
+    private: System::Void btnSol4_Click(System::Object^ sender, System::EventArgs^ e) {
+        flagfail4 = true;
+        task4.Sol4(txtOut4, txtIn4);
+    }
+    private: System::Void txtIn4_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+        flagfile4 = true;
+        txtOut4->Text = "";
+        char key = e->KeyChar;
+        if (!Char::IsDigit(e->KeyChar) && key != 8 && (key < 40 || key>57) && (key < 65 || key>90) && (key < 97 || key>122)) {
+            e->Handled = true;
+        }
+
+    }
+    private: System::Void btnFile4_Click(System::Object^ sender, System::EventArgs^ e) {
+        flagfile4 = true;
+        //fFileOP4(FilePath4, txtFile4);
+        txtIn4->Text = format4(Opening(FilePath4, txtFile4));
+        txtOut4->Text = "";
+    }
+    private: String^ format4(String^ str) {
+        String^ str2;
+        int flag = 0;
+        for (int i = 0; i < str->Length; i++) {
+            char key = str[i];
+            if (((key >= 40 && key <= 57) || (key >= 65 && key <= 90) || (key >= 97 && key <= 122))) {
+                str2 += str[i];
+            }
+        }
+
+        return str2;
+    }
+    private: System::Void btnSave4_Click(System::Object^ sender, System::EventArgs^ e) {
+        //fFileIN4(SaveFilePath4, txtFileOut4, txtOut4, txtIn4, flagfile4, flagfail4, "");
+        bool flag = flagfile4;
+        bool flag2 = flagfail4;
+        String^ s = SaveFilePath4;
+        String^ hs = hist4;
+        if (hist4 == txtIn4->Text) {
+            hs = txtOut4->Text;
+        }
+        Saving(s, txtIn4->Text, txtOut4->Text, txtFileOut4, flag, flag2, L"Исходное выражение:", hs);
+        if (txtOut4->Text!="") hist4 = txtIn4->Text;
+        flagfail4 = flag2;
+        flagfile4 = flag;
+        SaveFilePath4 = s;
+        //Saving(FilePath4, txtIn4->Text, txtOut4->Text, txtFileOut4, flagfile4, flagfail4, "Исходное выражение:", "записывать всегда");
+    }
+    private: System::Void txtIn4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+        flagfile4 = true;
+    }
 };
 }

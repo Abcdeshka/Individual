@@ -12,6 +12,7 @@ namespace Ref0 {
     public:
         MyClass();
         ~MyClass();
+    //Make string to array
     public: System::String^ formatString(String^ str) {
         String^ str2;
         int flag = 0;
@@ -32,10 +33,33 @@ namespace Ref0 {
         }
         return str2;
     }
-    private:
+    // min and max values of array
+    public: void keypressMinMax(System::Windows::Forms::KeyPressEventArgs^ e, System::Windows::Forms::TextBox^ txt) {
+        char key = e->KeyChar;
+        if (!Char::IsDigit(e->KeyChar) && key != 8 && key != '-') {
+            e->Handled = true;
 
+        }
+        else {
+            try {
+                if (key == '-') {
+                    double a = System::Double::Parse(txt->Text);
+                    a *= -1;
+                    txt->Text = Convert::ToString(a);
+                    e->Handled = true;
+                    txt->SelectionStart = txt->Text->Length;
+                }
+            }
+            catch (System::FormatException^ r) {
+                if (txt->Text->Length == 1) {
+                    e->Handled = true;
+                }
+            }
+
+        }
+    }
     };
-
+    
     MyClass::MyClass()
     {
     }
