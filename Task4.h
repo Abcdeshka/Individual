@@ -33,6 +33,7 @@ namespace Task4 {
     }
     
     private: bool ValidInside(String^ a, Windows::Forms::RichTextBox^ txtIn4) {
+        if (a == "") return 1;
         bool right = true;
         if (a[0] == '+' || a[0] == '*' || a[0] == '/') {
             right = false;

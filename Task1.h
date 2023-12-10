@@ -71,6 +71,7 @@ namespace Task1 {
             int a, b =0;
             String^ maxString="";
 			Pila(txtOut,a,b,maxString);
+            txtIn->Text += " ";
             txtIn->Select(txtIn->Text->IndexOf(maxString), maxString->Length);
             txtIn->SelectionColor = Color::Red;
 
@@ -78,7 +79,7 @@ namespace Task1 {
 	}
 
 	void Pila(Windows::Forms::TextBox^ txtOut, int &start, int &end, String^ &maxString) {
-		txtOut->Text = "Длина максимальной \"пилообразной\" последовательности чисел: ";
+		txtOut->Text = "Длина максимальной пилообразной последовательности чисел: ";
 		int maxlen = 1;
 		int curlen = 1;
 		int starti = 0;
@@ -115,6 +116,7 @@ namespace Task1 {
 		for (int j = start; j < end + 1; j++) {
 			maxString+=Arr[j] + " ";
 		}
+        if (maxString[maxString->Length - 1] == ' ') maxString->Remove(maxString->Length - 1, 1);
         txtOut->Text = txtOut->Text + maxString;
 	}
 
