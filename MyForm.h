@@ -124,12 +124,12 @@ namespace Individual {
     private: System::Windows::Forms::Label^ label25;
     private: System::Windows::Forms::Label^ label26;
     private: System::Windows::Forms::Label^ label27;
-private: System::Windows::Forms::TextBox^ txtFileOut4;
+    private: System::Windows::Forms::TextBox^ txtFileOut4;
 
     private: System::Windows::Forms::Button^ btnSave4;
 
     private: System::Windows::Forms::Label^ label28;
-private: System::Windows::Forms::TextBox^ txtFile4;
+    private: System::Windows::Forms::TextBox^ txtFile4;
 
     private: System::Windows::Forms::Button^ btnFile4;
 
@@ -1185,390 +1185,388 @@ private: System::Windows::Forms::TextBox^ txtFile4;
 
         }
 #pragma endregion
-        String^ FilePath1 = "";
-        String^ SaveFilePath1 = "";
-        String^ FilePath2 = "";
-        String^ SaveFilePath2 = "";
-        String^ FilePath3 = "";
-        String^ SaveFilePath3 = "";
-        String^ FilePath4 = "";
-        String^ SaveFilePath4 = "";
-        String^ hist1="abc";
-        String^ hist2;
-        String^ hist3;
-        String^ hist4;
-        Task1::Task1 task1;
-        Task2::Task2 task2;
-        Task3::Task3 task3;
-        Task4::Task4 task4;
-        Ref0::MyClass f;
-        bool flagfail1 = false;
-        bool flagfile1 = false;
-        bool flagfail2 = false;
-        bool flagfile2 = false;
-        bool flagfile3 = false;
-        bool flagfail3 = false;
-        bool flagfail4 = false;
-        bool flagfile4 = false;
+String^ FilePath1 = "";
+String^ SaveFilePath1 = "";
+String^ FilePath2 = "";
+String^ SaveFilePath2 = "";
+String^ FilePath3 = "";
+String^ SaveFilePath3 = "";
+String^ FilePath4 = "";
+String^ SaveFilePath4 = "";
+String^ hist1 = "abc";
+String^ hist2;
+String^ hist3;
+String^ hist4;
+Task1::Task1 task1;
+Task2::Task2 task2;
+Task3::Task3 task3;
+Task4::Task4 task4;
+Ref0::MyClass f;
+bool flagfail1 = false;
+bool flagfile1 = false;
+bool flagfail2 = false;
+bool flagfile2 = false;
+bool flagfile3 = false;
+bool flagfail3 = false;
+bool flagfail4 = false;
+bool flagfile4 = false;
 
 
-        //приведение матрицы в прямоугольный вид
-    private: void Rectangling(Windows::Forms::RichTextBox^ txt) {
-        String^ text = txt->Text;
-        if (text == "") return;
-        Collections::Generic::List<String^> arr;
-        // чистит по строкам
-        while (text != "") {
-            String^ curr = "";
-            int index = text->IndexOf('\n');
+    //приведение матрицы в прямоугольный вид
+private: void Rectangling(Windows::Forms::RichTextBox^ txt) {
+    String^ text = txt->Text;
+    if (text == "") return;
+    Collections::Generic::List<String^> arr;
+    // чистит по строкам
+    while (text != "") {
+        String^ curr = "";
+        int index = text->IndexOf('\n');
 
-            if (index == 0) {
-                text = text->Remove(0, text->IndexOf('\n') + 1);
+        if (index == 0) {
+            text = text->Remove(0, text->IndexOf('\n') + 1);
+        }
+        else {
+            if (index == -1) {
+                curr = text;
+                text = text + "\n";
             }
             else {
-                if (index == -1) {
-                    curr = text;
-                    text = text + "\n";
-                }
-                else {
-                    curr = text->Remove(index, text->Length - index);
-                }
-                curr = f.formatString(curr);
-                if (curr != "" && curr != nullptr) {
-                    if (curr[0] == ' ') curr = curr->Remove(0, 1);
-                    if (curr[curr->Length - 1] == ' ') curr = curr->Remove(curr->Length - 1, 1);
-                    arr.Add(curr);
-                }
-
-                text = text->Remove(0, text->IndexOf('\n') + 1);
+                curr = text->Remove(index, text->Length - index);
             }
-        }
-        txtIn2->Text = "";
-        //размеры массива и собирание его в прямоугольный
-        int col = arr.Count;
-        int len = 0;
-        Collections::Generic::List<int> sums;
-        for (int i = 0; i < arr.Count; i++) {
-            if (arr[i]->Split(' ')->Length > len) len = arr[i]->Split(' ')->Length;
-        }
-        for each (String ^ str in arr) {
-            Collections::Generic::List<String^> row;
-            for each (String ^ s in str->Split(' ')) {
-                txt->Text += txt->Text->Format("{0,8}", s);
-                row.Add(s);
+            curr = f.formatString(curr);
+            if (curr != "" && curr != nullptr) {
+                if (curr[0] == ' ') curr = curr->Remove(0, 1);
+                if (curr[curr->Length - 1] == ' ') curr = curr->Remove(curr->Length - 1, 1);
+                arr.Add(curr);
             }
-            while (len > row.Count)
-            {
-                txt->Text += txt->Text->Format("{0,8}", 0);
-                row.Add("0");
+
+            text = text->Remove(0, text->IndexOf('\n') + 1);
+        }
+    }
+    txtIn2->Text = "";
+    //размеры массива и собирание его в прямоугольный
+    int col = arr.Count;
+    int len = 0;
+    Collections::Generic::List<int> sums;
+    for (int i = 0; i < arr.Count; i++) {
+        if (arr[i]->Split(' ')->Length > len) len = arr[i]->Split(' ')->Length;
+    }
+    for each (String ^ str in arr) {
+        Collections::Generic::List<String^> row;
+        for each (String ^ s in str->Split(' ')) {
+            txt->Text += txt->Text->Format("{0,8}", s);
+            row.Add(s);
+        }
+        while (len > row.Count)
+        {
+            txt->Text += txt->Text->Format("{0,8}", 0);
+            row.Add("0");
+        }
+        txt->Text += "\r\n";
+    }
+
+}
+
+//For opening files
+String^ Opening(String^ filePath, Windows::Forms::TextBox^ txtFilePath) {
+    String^ str = "";
+    OpenFileDialog^ opFileD = gcnew OpenFileDialog;
+    opFileD->Title = "Открытие файла со списком маршрутов";
+    opFileD->InitialDirectory = "d:\\";
+    opFileD->Filter = "Текстовые файлы (*.txt)|*.txt";
+    opFileD->ShowReadOnly = false;
+    opFileD->RestoreDirectory = true;
+    if (opFileD->ShowDialog() == Windows::Forms::DialogResult::OK)
+    {
+        filePath = opFileD->FileName;
+        txtFilePath->Text = filePath;
+        try {
+            str = IO::File::ReadAllText(opFileD->FileName);
+
+        }
+        catch (IO::FileNotFoundException^ error) {
+            MessageBox::Show("Ошибка", error->Message + "\nНет такого файла, Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+        }
+    }
+    else
+        filePath = "";
+    if (str != "") return str;
+}
+//for saving files
+void Saving(String^& filePath, String^ txtInText, String^ txtOutText, Windows::Forms::TextBox^ txtFilePath,
+    bool& flagfile, bool& flagfail, String^ message, String^& hist) {
+    SaveFileDialog^ sfd = gcnew SaveFileDialog();
+    sfd->Title = "Сохранить файл";
+    sfd->Filter = "Текстовые файлы (*.txt)|*.txt";
+    sfd->RestoreDirectory = true;
+    sfd->OverwritePrompt = false;
+    sfd->ShowDialog();
+    if (sfd->FileName != "") {
+        StreamWriter^ sw = gcnew StreamWriter(sfd->FileName, true);
+        filePath = sfd->FileName;
+        txtFilePath->Text = filePath;
+        if (flagfail && (hist != txtOutText)) {
+            if (flagfile) {
+                sw->WriteLine(message);
+                sw->WriteLine(txtInText);
+                flagfile = false;
             }
-            txt->Text += "\r\n";
+            sw->WriteLine(txtOutText);
+            hist = txtOutText;
+            flagfail = false;
         }
+        sw->Close();
+    }
+}
 
-    }
+String^ format3(String^ str) {
+    String^ str2 = "";
+    int flag = 0;
+    for (int i = 0; i < str->Length - 1; i++) {
 
-           //For opening files
-           String^ Opening(String^ filePath, Windows::Forms::TextBox^ txtFilePath) {
-               String^ str = "";
-               OpenFileDialog^ opFileD = gcnew OpenFileDialog;
-               opFileD->Title = "Открытие файла со списком маршрутов";
-               opFileD->InitialDirectory = "d:\\";
-               opFileD->Filter = "Текстовые файлы (*.txt)|*.txt";
-               opFileD->ShowReadOnly = false;
-               opFileD->RestoreDirectory = true;
-               if (opFileD->ShowDialog() == Windows::Forms::DialogResult::OK)
-               {
-                   filePath = opFileD->FileName;
-                   txtFilePath->Text = filePath;
-                   try {
-                       str = IO::File::ReadAllText(opFileD->FileName);
-
-                   }
-                   catch (IO::FileNotFoundException^ error) {
-                       MessageBox::Show("Ошибка", error->Message + "\nНет такого файла, Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
-                   }
-               }
-               else
-                   filePath = "";
-               if (str != "") return str;
-           }
-           //for saving files
-           void Saving(String^& filePath, String^ txtInText, String^ txtOutText, Windows::Forms::TextBox^ txtFilePath,
-               bool& flagfile, bool& flagfail, String^ message, String^& hist) {
-               SaveFileDialog^ sfd = gcnew SaveFileDialog();
-               sfd->Title = "Сохранить файл";
-               sfd->Filter = "Текстовые файлы (*.txt)|*.txt";
-               sfd->RestoreDirectory = true;
-               sfd->OverwritePrompt = false;
-               sfd->ShowDialog();
-               if (sfd->FileName != "") {
-                   StreamWriter^ sw = gcnew StreamWriter(sfd->FileName, true);
-                   filePath = sfd->FileName;
-                   txtFilePath->Text = filePath;
-                   if (flagfail && (hist != txtOutText)) {
-                       if (flagfile) {
-                           sw->WriteLine(message);
-                           sw->WriteLine(txtInText);
-                           flagfile = false;
-                       }
-                       sw->WriteLine(txtOutText);
-                       hist = txtOutText;
-                       flagfail = false;
-                   }
-                   sw->Close();
-               }
-           }
-
-           String^ format3(String^ str) {
-               String^ str2 = "";
-               int flag = 0;
-               for (int i = 0; i < str->Length - 1; i++) {
-
-                   if (!Char::IsNumber(str[i]) && str2->Length != 0) {
-                       return str2;
-                   }
-                   if (!Char::IsNumber(str[i]) && Char::IsNumber(str[i + 1]) && str2->Length == 0) {
-                       str2 = str2;
-                   }
-                   else if (Char::IsNumber(str[i])) {
-                       str2 += str[i];
-                   }
-               }
-               if (str->Length != 0) {
-                   if (Char::IsNumber(str[str->Length - 1])) { str2 += str[str->Length - 1]; }
-               }
-               return str2;
-           }
-           
-    private: System::Void btnGen_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfile1 = true;
-        task1.Gen1(flagfail1, flagfile1, txtCount, txtIn, txtEndMas, txtMin, txtMax);
-    }
-
-    private: System::Void btn_File_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfile1 = true;
-        txtIn->Text=f.formatString(Opening(FilePath1, txtBoxFile));
-        txtEndMas->Text = "";
-    }
-
-    private: System::Void btnSol_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfail1 = true;
-        task1.Sol1(flagfail1, flagfile1, txtIn, txtEndMas);
-    }
-    private: System::Void btnGen2_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfile2 = true;
-        task2.Gen2(txtSums, txtX2, txtY2, txtIn2, txtMin2, txtMax2, txtOut2);
-    }
-    private: System::Void btnSol2_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfail2 = true;
-        task2.Sol2(txtSums, txtOut2, txtIn2);
-    }
-    private: System::Void btnFile2_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfile2 = true;
-        /*fFileOPD(FileName, TextBoxFile2, txtIn2, 1);*/
-        txtIn2->Text = Opening(FilePath2, TextBoxFile2);
-        txtOut2->Text = "";
-        Rectangling(txtIn2);
-    }
-    private: System::Void btnSave2_Click(System::Object^ sender, System::EventArgs^ e) {
-        //fFileIN(SaveFilePath2, textBoxFileOut2, txtOut2, txtIn2, flagfile2, flagfail2, "Исходный массив:");
-        bool flag = flagfile2;
-        bool flag2 = flagfail2;
-        String^ s = SaveFilePath2;
-        String^ hs = hist2;
-        Saving(s, txtIn2->Text, txtOut2->Text, textBoxFileOut2, flag, flag2, L"Исходный массив:", hs);
-        flagfail2 = flag2;
-        flagfile2 = flag;
-        SaveFilePath2 = s;
-        hist2 = hs;
-        //Saving(SaveFilePath2, txtIn2->Text, txtOut2->Text, textBoxFileOut2, flagfile2, flagfail2, "Исходный массив:", hist2);
-    }
-    private: System::Void txtX2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-    }
-    private: System::Void txtX2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        char key = e->KeyChar;
-        if (!Char::IsDigit(e->KeyChar) && key != 8) {
-            e->Handled = true;
+        if (!Char::IsNumber(str[i]) && str2->Length != 0) {
+            return str2;
+        }
+        if (!Char::IsNumber(str[i]) && Char::IsNumber(str[i + 1]) && str2->Length == 0) {
+            str2 = str2;
+        }
+        else if (Char::IsNumber(str[i])) {
+            str2 += str[i];
         }
     }
-    private: System::Void txtY2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        char key = e->KeyChar;
-        if (!Char::IsDigit(e->KeyChar) && key != 8) {
-            e->Handled = true;
-        }
+    if (str->Length != 0) {
+        if (Char::IsNumber(str[str->Length - 1])) { str2 += str[str->Length - 1]; }
     }
-    private: System::Void txtMin2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        txtOut2->Text = "";
-        f.keypressMinMax(e, txtMin2);
-    }
-    private: System::Void txtMax2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        txtOut2->Text = "";
-        f.keypressMinMax(e, txtMax2);
-    }
-    private: System::Void btnClose2_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->Close();
-    }
-    private: System::Void txtIn2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        txtY2->Text = "";
-        txtX2->Text = "";
-        txtMin2->Text = "";
-        txtMax2->Text = "";
+    return str2;
+}
 
-    }
-    private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-    }
-    private: System::Void txtIn2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-    }
-    private: System::Void txtSums_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-    }
-           //меняет размеры окна при изменении вкладки с заданием
-    private: System::Void tabControl1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-        std::cout << tabControl1->SelectedIndex;
-        int i = 0;
-        switch (tabControl1->SelectedIndex) {
-        case 0:
-            this->MaximizeBox = false;
-            this->MinimizeBox = false;
-            this->Width = 500;
-            this->Height = 690;
-            break;
-        case 1:
-            this->MaximizeBox = true;
-            this->MinimizeBox = true;
-            this->Width = 1900;
-            this->Height = 820;
-            break;
-        case 2:
-            this->MaximizeBox = false;
-            this->MinimizeBox = false;
-            this->Width = 500;
-            this->Height = 100;
-            break;
-        case 3:
-            this->MaximizeBox = true;
-            this->MinimizeBox = true;
-            this->Width = 100;
-            this->Height = 820;
-            break;
-        }
+private: System::Void btnGen_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfile1 = true;
+    task1.Gen1(flagfail1, flagfile1, txtCount, txtIn, txtEndMas, txtMin, txtMax);
+}
 
-    }
-    private: System::Void btnSol3_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfail3 = true;
-        task3.Sol3(txtOut3, txtIn3);
-    }
-    private: System::Void txtMin_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        txtEndMas->Text = "";
-        f.keypressMinMax(e, txtMin);
-    }
-    private: System::Void txtMax_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        txtEndMas->Text = "";
-        f.keypressMinMax(e, txtMax);
-    }
-    private: System::Void txtCount_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        char key = e->KeyChar;
-        if (!Char::IsDigit(e->KeyChar) && key != 8) {
-            e->Handled = true;
-        }
-    }
-    private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->Close();
-    }
-    private: System::Void btnSaveFile_Click(System::Object^ sender, System::EventArgs^ e) {
-        //fFileIN(SaveFilePath1, txtOutFile, EndMas, txtIn, flagfile1, flagfail1, "Исходный массив:");
-        bool flag = flagfile1;
-        bool flag2 = flagfail1;
-        String^ s = SaveFilePath1;
-        String^ hs = hist1;
-        Saving(s, txtIn->Text, txtEndMas->Text, txtOutFile, flag, flag2, Convert::ToString(L"Исходный массив:"), hs);
-        flagfail1 = flag2;
-        flagfile1 = flag;
-        SaveFilePath1 = s;
-        hist1 = hs;      
-    }
-    private: System::Void label23_Click(System::Object^ sender, System::EventArgs^ e) {
-    }
-    private: System::Void txtIn3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        flagfile3 = true;
-        char key = e->KeyChar;
-        if (!Char::IsDigit(e->KeyChar) && key != 8) {
-            e->Handled = true;
-        }
-    }
-    private: System::Void txtOut3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        flagfail3 = true;
-        txtIn3->Text = "";
-    }
-    private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfile3 = true;
-        //fFileOP3(FilePath3, textBox3);
-        txtIn3->Text = format3(Opening(FilePath3, txtFile3));
-        txtOut3->Text = "";
-    }
-    private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-        //fFileIN3(SaveFilePath3, txtFileOut3, txtOut3, txtIn3, flagfile3, flagfail3, L"Простые множители данного числа:");
-        bool flag = flagfile3;
-        bool flag2 = flagfail3;
-        String^ s = SaveFilePath3;
-        String^ hs = hist3;
-        Saving(s, txtIn3->Text, txtOut3->Text, txtFileOut3, flag, flag2, L"Простые множители данного числа:", hs);
-        flagfail3 = flag2;
-        flagfile3 = flag;
-        SaveFilePath3 = s;
-        hist3 = hs;
-        //Saving(SaveFilePath3, txtIn3->Text, txtOut3->Text, txtFileOut3, flagfile3, flagfail3, L"Простые множители данного числа:", hist3);
-    }
-    private: System::Void label26_Click(System::Object^ sender, System::EventArgs^ e) {
-    }
-    private: System::Void btnSol4_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfail4 = true;
-        task4.Sol4(txtOut4, txtIn4);
-    }
-    private: System::Void txtIn4_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-        flagfile4 = true;
-        txtOut4->Text = "";
-        char key = e->KeyChar;
-        if (!Char::IsDigit(e->KeyChar) && key != 8 && (key < 40 || key>57) && (key < 65 || key>90) && (key < 97 || key>122)) {
-            e->Handled = true;
-        }
+private: System::Void btn_File_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfile1 = true;
+    txtIn->Text = f.formatString(Opening(FilePath1, txtBoxFile));
+    txtEndMas->Text = "";
+}
 
+private: System::Void btnSol_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfail1 = true;
+    task1.Sol1(flagfail1, flagfile1, txtIn, txtEndMas);
+}
+private: System::Void btnGen2_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfile2 = true;
+    task2.Gen2(txtSums, txtX2, txtY2, txtIn2, txtMin2, txtMax2, txtOut2);
+}
+private: System::Void btnSol2_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfail2 = true;
+    task2.Sol2(txtSums, txtOut2, txtIn2);
+}
+private: System::Void btnFile2_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfile2 = true;
+    /*fFileOPD(FileName, TextBoxFile2, txtIn2, 1);*/
+    txtIn2->Text = Opening(FilePath2, TextBoxFile2);
+    txtOut2->Text = "";
+    Rectangling(txtIn2);
+}
+private: System::Void btnSave2_Click(System::Object^ sender, System::EventArgs^ e) {
+    //fFileIN(SaveFilePath2, textBoxFileOut2, txtOut2, txtIn2, flagfile2, flagfail2, "Исходный массив:");
+    bool flag = flagfile2;
+    bool flag2 = flagfail2;
+    String^ s = SaveFilePath2;
+    String^ hs = hist2;
+    Saving(s, txtIn2->Text, txtOut2->Text, textBoxFileOut2, flag, flag2, L"Исходный массив:", hs);
+    flagfail2 = flag2;
+    flagfile2 = flag;
+    SaveFilePath2 = s;
+    hist2 = hs;
+    //Saving(SaveFilePath2, txtIn2->Text, txtOut2->Text, textBoxFileOut2, flagfile2, flagfail2, "Исходный массив:", hist2);
+}
+private: System::Void txtX2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txtX2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    char key = e->KeyChar;
+    if (!Char::IsDigit(e->KeyChar) && key != 8) {
+        e->Handled = true;
     }
-    private: System::Void btnFile4_Click(System::Object^ sender, System::EventArgs^ e) {
-        flagfile4 = true;
-        //fFileOP4(FilePath4, txtFile4);
-        txtIn4->Text = format4(Opening(FilePath4, txtFile4));
-        txtOut4->Text = "";
+}
+private: System::Void txtY2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    char key = e->KeyChar;
+    if (!Char::IsDigit(e->KeyChar) && key != 8) {
+        e->Handled = true;
     }
-    private: String^ format4(String^ str) {
-        String^ str2;
-        int flag = 0;
-        for (int i = 0; i < str->Length; i++) {
-            char key = str[i];
-            if (((key >= 40 && key <= 57) || (key >= 65 && key <= 90) || (key >= 97 && key <= 122))) {
-                str2 += str[i];
-            }
-        }
+}
+private: System::Void txtMin2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    txtOut2->Text = "";
+    f.keypressMinMax(e, txtMin2);
+}
+private: System::Void txtMax2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    txtOut2->Text = "";
+    f.keypressMinMax(e, txtMax2);
+}
+private: System::Void btnClose2_Click(System::Object^ sender, System::EventArgs^ e) {
+    this->Close();
+}
+private: System::Void txtIn2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    txtY2->Text = "";
+    txtX2->Text = "";
+    txtMin2->Text = "";
+    txtMax2->Text = "";
 
-        return str2;
+}
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txtIn2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txtSums_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+        //меняет размеры окна при изменении вкладки с заданием
+private: System::Void tabControl1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+    switch (tabControl1->SelectedIndex) {
+    case 0:
+        this->MaximizeBox = false;
+        this->MinimizeBox = false;
+        this->Width = 500;
+        this->Height = 690;
+        break;
+    case 1:
+        this->MaximizeBox = true;
+        this->MinimizeBox = true;
+        this->Width = 1900;
+        this->Height = 820;
+        break;
+    case 2:
+        this->MaximizeBox = false;
+        this->MinimizeBox = false;
+        this->Width = 500;
+        this->Height = 100;
+        break;
+    case 3:
+        this->MaximizeBox = true;
+        this->MinimizeBox = true;
+        this->Width = 100;
+        this->Height = 820;
+        break;
     }
-    private: System::Void btnSave4_Click(System::Object^ sender, System::EventArgs^ e) {
-        //fFileIN4(SaveFilePath4, txtFileOut4, txtOut4, txtIn4, flagfile4, flagfail4, "");
-        bool flag = flagfile4;
-        bool flag2 = flagfail4;
-        String^ s = SaveFilePath4;
-        String^ hs = hist4;
-        if (hist4 == txtIn4->Text) {
-            hs = txtOut4->Text;
+
+}
+private: System::Void btnSol3_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfail3 = true;
+    task3.Sol3(txtOut3, txtIn3);
+}
+private: System::Void txtMin_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    txtEndMas->Text = "";
+    f.keypressMinMax(e, txtMin);
+}
+private: System::Void txtMax_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    txtEndMas->Text = "";
+    f.keypressMinMax(e, txtMax);
+}
+private: System::Void txtCount_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    char key = e->KeyChar;
+    if (!Char::IsDigit(e->KeyChar) && key != 8) {
+        e->Handled = true;
+    }
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+    this->Close();
+}
+private: System::Void btnSaveFile_Click(System::Object^ sender, System::EventArgs^ e) {
+    //fFileIN(SaveFilePath1, txtOutFile, EndMas, txtIn, flagfile1, flagfail1, "Исходный массив:");
+    bool flag = flagfile1;
+    bool flag2 = flagfail1;
+    String^ s = SaveFilePath1;
+    String^ hs = hist1;
+    Saving(s, txtIn->Text, txtEndMas->Text, txtOutFile, flag, flag2, Convert::ToString(L"Исходный массив:"), hs);
+    flagfail1 = flag2;
+    flagfile1 = flag;
+    SaveFilePath1 = s;
+    hist1 = hs;
+}
+private: System::Void label23_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txtIn3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    flagfile3 = true;
+    char key = e->KeyChar;
+    if (!Char::IsDigit(e->KeyChar) && key != 8) {
+        e->Handled = true;
+    }
+}
+private: System::Void txtOut3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    flagfail3 = true;
+    txtIn3->Text = "";
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfile3 = true;
+    //fFileOP3(FilePath3, textBox3);
+    txtIn3->Text = format3(Opening(FilePath3, txtFile3));
+    txtOut3->Text = "";
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+    //fFileIN3(SaveFilePath3, txtFileOut3, txtOut3, txtIn3, flagfile3, flagfail3, L"Простые множители данного числа:");
+    bool flag = flagfile3;
+    bool flag2 = flagfail3;
+    String^ s = SaveFilePath3;
+    String^ hs = hist3;
+    Saving(s, txtIn3->Text, txtOut3->Text, txtFileOut3, flag, flag2, L"Простые множители данного числа:", hs);
+    flagfail3 = flag2;
+    flagfile3 = flag;
+    SaveFilePath3 = s;
+    hist3 = hs;
+    //Saving(SaveFilePath3, txtIn3->Text, txtOut3->Text, txtFileOut3, flagfile3, flagfail3, L"Простые множители данного числа:", hist3);
+}
+private: System::Void label26_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnSol4_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfail4 = true;
+    task4.Sol4(txtOut4, txtIn4);
+}
+private: System::Void txtIn4_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+    flagfile4 = true;
+    txtOut4->Text = "";
+    char key = e->KeyChar;
+    if (!Char::IsDigit(e->KeyChar) && key != 8 && (key < 40 || key>57) && (key < 65 || key>90) && (key < 97 || key>122)) {
+        e->Handled = true;
+    }
+
+}
+private: System::Void btnFile4_Click(System::Object^ sender, System::EventArgs^ e) {
+    flagfile4 = true;
+    //fFileOP4(FilePath4, txtFile4);
+    txtIn4->Text = format4(Opening(FilePath4, txtFile4));
+    txtOut4->Text = "";
+}
+private: String^ format4(String^ str) {
+    String^ str2;
+    int flag = 0;
+    for (int i = 0; i < str->Length; i++) {
+        char key = str[i];
+        if (((key >= 40 && key <= 57) || (key >= 65 && key <= 90) || (key >= 97 && key <= 122))) {
+            str2 += str[i];
         }
-        Saving(s, txtIn4->Text, txtOut4->Text, txtFileOut4, flag, flag2, L"Исходное выражение:", hs);
-        if (txtOut4->Text!="") hist4 = txtIn4->Text;
-        flagfail4 = flag2;
-        flagfile4 = flag;
-        SaveFilePath4 = s;
-        //Saving(FilePath4, txtIn4->Text, txtOut4->Text, txtFileOut4, flagfile4, flagfail4, "Исходное выражение:", "записывать всегда");
     }
-    private: System::Void txtIn4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-        flagfile4 = true;
+
+    return str2;
+}
+private: System::Void btnSave4_Click(System::Object^ sender, System::EventArgs^ e) {
+    //fFileIN4(SaveFilePath4, txtFileOut4, txtOut4, txtIn4, flagfile4, flagfail4, "");
+    bool flag = flagfile4;
+    bool flag2 = flagfail4;
+    String^ s = SaveFilePath4;
+    String^ hs = hist4;
+    if (hist4 == txtIn4->Text) {
+        hs = txtOut4->Text;
     }
-};
+    Saving(s, txtIn4->Text, txtOut4->Text, txtFileOut4, flag, flag2, L"Исходное выражение:", hs);
+    if (txtOut4->Text != "") hist4 = txtIn4->Text;
+    flagfail4 = flag2;
+    flagfile4 = flag;
+    SaveFilePath4 = s;
+    //Saving(FilePath4, txtIn4->Text, txtOut4->Text, txtFileOut4, flagfile4, flagfail4, "Исходное выражение:", "записывать всегда");
+}
+private: System::Void txtIn4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+    flagfile4 = true;
+}
+    };
 }

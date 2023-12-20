@@ -47,48 +47,77 @@ namespace Task4 {
         }
         else {
             for (int i = 0; (i < a->Length); i++) {
-                //два знака подряд
-                if ((a[i] == '+' || a[i] == '-' || a[i] == '*' || a[i] == '/') && (a[i + 1] == '+' || a[i + 1] == '*' || a[i + 1] == '/' || a[i+1] == '-')) {
-                    txtIn4->Select(i, 2);
-                    txtIn4->SelectionColor = Color::Red;
-                    right = false;
+
+                //после знака идет знак или скобка стоит со знаком не с нужной стороны
+                if (a[i] == '+' || a[i] == '-' || a[i] == '*' || a[i] == '/') {
+                    if (a[i + 1] == '+' || a[i + 1] == '*' || a[i + 1] == '/' || a[i + 1] == '-' || a[i + 1] == ')' || a[i - 1] == '(') {
+                        txtIn4->Select(i, 2);
+                        txtIn4->SelectionColor = Color::Red;
+                        right = false;
+                    }
                 }
-                //знак перед скобкой нельзя
-                if ((a[i] == '+' || a[i] == '-' || a[i] == '*' || a[i] == '/' || a[i] == '(') && (a[i + 1] == ')' )) {
-                    txtIn4->Select(i, 2);
-                    txtIn4->SelectionColor = Color::Red;
-                    right = false;
-                }
-                //знак перед скобкой нельзя
-                if ((a[i] == '(' ) && (a[i + 1] == '+' || a[i + 1] == '*' || a[i + 1] == '/'  || a[i+1] == ')')) {
-                    txtIn4->Select(i, 2);
-                    txtIn4->SelectionColor = Color::Red;
-                    right = false;
-                }
-                //знак перед скобкой нужен
-                if ((a[i] == '(') && (i != 0)) {
-                    if ((a[i - 1] != '+' && a[i - 1] != '*' && a[i - 1] != '/' && a[i - 1] != '-' && a[i - 1] != '(')) {
+                //если со скобкой нет нужного знака или если два нуля (в старших разрядах)
+                else {
+                    if (a[i-1] == ')') {
+                        txtIn4->Select(i, 1);
+                        txtIn4->SelectionColor = Color::Red;
+                        right = false;
+                    }
+                    if (a[i + 1] == '(') {
+                        txtIn4->Select(i, 1);
+                        txtIn4->SelectionColor = Color::Red;
+                        right = false;
+                    if (a[i+1] == '0' && (a[i + 1] != '+' && a[i + 1] != '*' && a[i + 1] != '/' && a[i + 1] != '-' && a[i + 1] != ')')) {
                         txtIn4->Select(i, 1);
                         txtIn4->SelectionColor = Color::Red;
                         right = false;
                     }
                 }
-                //знак перед скобкой нужен
-                if ((a[i] == ')') && (i != a->Length-1)) {
-                    if ((a[i + 1] != '+' && a[i + 1] != '*' && a[i + 1] != '/' && a[i + 1] != '-' && a[i + 1] != ')')) {
-                        txtIn4->Select(i, 1);
-                        txtIn4->SelectionColor = Color::Red;
-                        right = false;
-                    }
                 }
-                //два нуля
-                if ((a[i] == '0') && (i != a->Length-1) && (i != 0)) {
-                    if (((a[i - 1] == '+' || a[i - 1] == '*' || a[i - 1] == '/' || a[i - 1] == '-' || a[i - 1] == '(')) && (a[i + 1] != '+' && a[i + 1] != '*' && a[i + 1] != '/' && a[i + 1] != '-' && a[i + 1] != ')')) {
-                        txtIn4->Select(i, 1);
-                        txtIn4->SelectionColor = Color::Red;
-                        right = false;
-                    }
-                }
+
+
+                ////два знака подряд
+                //if ((a[i] == '+' || a[i] == '-' || a[i] == '*' || a[i] == '/') && (a[i + 1] == '+' || a[i + 1] == '*' || a[i + 1] == '/' || a[i+1] == '-')) {
+                //    txtIn4->Select(i, 2);
+                //    txtIn4->SelectionColor = Color::Red;
+                //    right = false;
+                //}
+                ////знак со скобкой нельзя
+                //if ((a[i] == '+' || a[i] == '-' || a[i] == '*' || a[i] == '/' || a[i] == '(') && (a[i + 1] == ')' )) {
+                //    txtIn4->Select(i, 2);
+                //    txtIn4->SelectionColor = Color::Red;
+                //    right = false;
+                //}
+                //знак со скобкой нельзя
+                //if ((a[i] == '(' ) && (a[i + 1] == '+' || a[i + 1] == '*' || a[i + 1] == '/'  || a[i+1] == ')')) {
+                //    txtIn4->Select(i, 2);
+                //    txtIn4->SelectionColor = Color::Red;
+                //    right = false;
+                //}
+                ////знак со скобкой нужен
+                //if ((a[i] == '(') && (i != 0)) {
+                //    if ((a[i - 1] != '+' && a[i - 1] != '*' && a[i - 1] != '/' && a[i - 1] != '-' && a[i - 1] != '(')) {
+                //        txtIn4->Select(i, 1);
+                //        txtIn4->SelectionColor = Color::Red;
+                //        right = false;
+                //    }
+                //}
+                ////знак со скобкой нужен
+                //if ((a[i] == ')') && (i != a->Length-1)) {
+                //    if ((a[i + 1] != '+' && a[i + 1] != '*' && a[i + 1] != '/' && a[i + 1] != '-' && a[i + 1] != ')')) {
+                //        txtIn4->Select(i, 1);
+                //        txtIn4->SelectionColor = Color::Red;
+                //        right = false;
+                //    }
+                //}
+                ////два нуля
+                //if ((a[i] == '0') && (i != a->Length-1) && (i != 0)) {
+                //    if (((a[i - 1] == '+' || a[i - 1] == '*' || a[i - 1] == '/' || a[i - 1] == '-' || a[i - 1] == '(')) && (a[i + 1] != '+' && a[i + 1] != '*' && a[i + 1] != '/' && a[i + 1] != '-' && a[i + 1] != ')')) {
+                //        txtIn4->Select(i, 1);
+                //        txtIn4->SelectionColor = Color::Red;
+                //        right = false;
+                //    }
+                //}
                 //для переменных
                 if (((a[i] >= 65 && a[i]<=90) || (a[i] >= 97 && a[i]<=122)) && (i != a->Length - 1)) {
                     if (Char::IsDigit(a[i+1])) {
